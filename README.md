@@ -1,68 +1,91 @@
-# CodeIgniter 4 Application Starter
+# 🗓️ Aplikasi Todolist
 
-## What is CodeIgniter?
+[![PHP Version](https://img.shields.io/badge/PHP-%5E8.1-blue?logo=php)](https://www.php.net/) [![CodeIgniter 4](https://img.shields.io/badge/CodeIgniter-4-red?logo=codeigniter)](https://codeigniter.com/) [![License](https://img.shields.io/github/license/arell74/ukk-2025-todolist-app)](LICENSE) [![Last Commit](https://img.shields.io/github/last-commit/arell74/ukk-2025-todolist-app)](https://github.com/arell74/ukk-2025-todolist-app/commits/main)
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+Proyek ini merupakan salah satu proyek **UKK** jurusan Pengembangan Perangkat Lunak dan Gim. **Aplikasi To-Do List** berbasis web yang dibangun menggunakan Framework CodeIgniter 4.
+Aplikasi ini dirancang untuk *membantu pengguna dalam mengelola, mencatat, dan memantau aktivitas atau tugas harian secara lebih teratur dan efisien.*
 
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+---
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+## 🚀 Fitur Utama
 
-You can read the [user guide](https://codeigniter.com/user_guide/)
-corresponding to the latest version of the framework.
+- **🔑 Login Auth**  
+  Sistem login dan registrasi yang aman dengan pengelolaan peran pengguna.
 
-## Installation & updates
+- **📊 Manajemen Tugas**  
+   Menambah, mengubah, menghapus, serta menandai tugas yang sudah selesai.
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+- **📍 Kategori & Prioritas**  
+  Mengelompokkan tugas berdasarkan kategori (pekerjaan, belajar, pribadi, dll) dan tingkat prioritas (rendah, sedang, tinggi).
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
+- **📝 Pengingat Deadline**  
+  Menetapkan batas waktu (deadline) untuk setiap tugas agar tidak terlewat.
 
-## Setup
+- **📅 Kalender Interaktif**  
+  Menampilkan jadwal sesuai ketentuan hari.
 
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
+- **📂 Tampilan Responsif**  
+  Antarmuka sederhana dan rapi yang dapat diakses baik di desktop maupun perangkat mobile.
 
-## Important Change with index.php
+---
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+## 🖥 Persyaratan Sistem
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+- **PHP** versi `8.1` atau lebih tinggi.
+- **Composer** untuk manajemen dependensi PHP.
+- **Web Server** (Apache, Nginx, dll).
+- **Database** (MySQL, PostgreSQL, dll).
 
-**Please** read the user guide for a better explanation of how CI4 works!
+> Pastikan ekstensi PHP berikut aktif:
+> - `intl`
+> - `mbstring`
+> - `json`
+> - `mysqlnd` *(jika menggunakan MySQL)*
+> - `libcurl`
 
-## Repository Management
+---
 
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+## 📦 Panduan Instalasi
 
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
+Ikuti langkah-langkah berikut untuk menjalankan aplikasi di lokal:
 
-## Server Requirements
+### 1️⃣ Mengkloning Repositori
+```bash
+git clone https://github.com/arell74/ukk-2025-todolist-app.git
+cd ukk-2025-todolist-app
+```
+### 2️⃣ Instalasi Dependensi
+```bash
+- composer install
+```
 
-PHP version 8.1 or higher is required, with the following extensions installed:
+### 3️⃣ Konfigurasi Lingkungan
+```bash
+buka file .env dan atur konfigurasi:
 
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
+# APP
+app.baseURL = 'http://localhost:8080'
 
-> [!WARNING]
-> - The end of life date for PHP 7.4 was November 28, 2022.
-> - The end of life date for PHP 8.0 was November 26, 2023.
-> - If you are still using PHP 7.4 or 8.0, you should upgrade immediately.
-> - The end of life date for PHP 8.1 will be December 31, 2025.
+# DATABASE
+database.default.hostname = localhost
+database.default.database = todolist
+database.default.username = root
+database.default.password =
+database.default.DBDriver = MySQLi
+```
+### 4️⃣ Migrasi & Seeder Database
+```bash
+php spark migrate
+php spark db:seed AllSeeder
+```
 
-Additionally, make sure that the following extensions are enabled in your PHP:
+### 5️⃣ Menjalankan Server
+```bash
+php spark serve
+```
 
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+## 👤 Akun Pengguna Default
+| Email   | Username | Password |
+| ------- | -------- | -------- |
+| admin@gmail.com   | admin    | admin123 |
+
